@@ -219,7 +219,7 @@
                 
               
 
-              <time title="创建时间：2019-10-02 16:47:37 / 修改时间：17:48:12" itemprop="dateCreated datePublished" datetime="2019-10-02T16:47:37+08:00">2019-10-02</time>
+              <time title="创建时间：2019-10-02 16:47:37 / 修改时间：22:56:16" itemprop="dateCreated datePublished" datetime="2019-10-02T16:47:37+08:00">2019-10-02</time>
             </span>
           
             
@@ -276,6 +276,10 @@
 
 <p>然后逐步的重复上述步骤，根据输出对脚本进行修改</p>
 <h2 id="最终脚本"><a href="#最终脚本" class="headerlink" title="最终脚本"></a>最终脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line">osascript -e <span class="string">'tell application "System Events"</span></span><br><span class="line"><span class="string">	get title of UI element 4 of group 9 of UI element 1 of scroll area 1 of group 1 of group 1 of window "NeteaseMusic" of process "NeteaseMusic"</span></span><br><span class="line"><span class="string">end tell'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="后续：把脚本使用在Powerlevel9k-amp-10k上"><a href="#后续：把脚本使用在Powerlevel9k-amp-10k上" class="headerlink" title="后续：把脚本使用在Powerlevel9k &amp; 10k上"></a>后续：把脚本使用在Powerlevel9k &amp; 10k上</h2><h3 id="powerlevel9k"><a href="#powerlevel9k" class="headerlink" title="powerlevel9k"></a>powerlevel9k</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=（... custom_now_playing ...）</span><br><span class="line"><span class="comment"># 把上面的脚本内容放在nowplaying里</span></span><br><span class="line">POWERLEVEL9K_CUSTOM_NOW_PLAYING=<span class="string">'~/.dotfiles/bin/nowplaying'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="powerlevel10k"><a href="#powerlevel10k" class="headerlink" title="powerlevel10k"></a>powerlevel10k</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.p10k.zsh</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">prompt_now_playing_song</span></span>() &#123;</span><br><span class="line">    <span class="built_in">local</span> song=`osascript -e <span class="string">'tell application "System Events" </span></span><br><span class="line"><span class="string">      get title of UI element 4 of group 9 of UI element 1 of scroll area 1 of group 1 of group 1 of window "NeteaseMusic" of process "NeteaseMusic" </span></span><br><span class="line"><span class="string">      end tell'</span>`</span><br><span class="line">    p10k segment -f 208 -i <span class="string">'🎵'</span> -t <span class="string">"<span class="variable">$song</span>"</span>  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         
@@ -341,7 +345,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-02 18:47:30" itemprop="dateModified" datetime="2019-10-02T18:47:30+08:00">2019-10-02</time>
+                <time title="修改时间：2019-10-02 18:49:07" itemprop="dateModified" datetime="2019-10-02T18:49:07+08:00">2019-10-02</time>
               </span>
             
           
@@ -404,7 +408,7 @@
 </li>
 <li><p>选好博客安装的目录， <code>git clone git@github.com:username/username.github.io.git</code></p>
 </li>
-<li><p>cd 到博客目录，npm install、hexo g &amp;&amp; hexo s，安装依赖，生成和启动博客服务。正常的话，浏览器打开 localhost:4000 可以看到博客了。至此新电脑操作完毕。</p>
+<li><p>cd 到博客目录，<code>npm install、hexo g &amp;&amp; hexo s</code>，安装依赖，生成和启动博客服务。正常的话，浏览器打开<code>localhost:4000</code>可以看到博客了。至此新电脑操作完毕。</p>
 </li>
 </ol>
 <p>以后无论在哪台电脑上，更新以及提交博客，依次执行<code>git pull，git add .，git commit -m &quot;message&quot;，git push origin hexo，hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code> 即可。</p>
