@@ -63,3 +63,25 @@ osascript -e 'tell application "System Events"
 end tell'
 ```
 
+## 后续：把脚本使用在Powerlevel9k & 10k上
+
+### powerlevel9k
+
+``` bash
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=（... custom_now_playing ...）
+# 把上面的脚本内容放在nowplaying里
+POWERLEVEL9K_CUSTOM_NOW_PLAYING='~/.dotfiles/bin/nowplaying'
+```
+
+### powerlevel10k
+
+``` bash
+# ~/.p10k.zsh
+function prompt_now_playing_song() {
+    local song=`osascript -e 'tell application "System Events" 
+      get title of UI element 4 of group 9 of UI element 1 of scroll area 1 of group 1 of group 1 of window "NeteaseMusic" of process "NeteaseMusic" 
+      end tell'`
+    p10k segment -f 208 -i '🎵' -t "$song"  
+}
+```
+
