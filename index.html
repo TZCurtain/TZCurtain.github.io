@@ -333,6 +333,18 @@
               <time title="创建时间：2019-09-13 11:17:54" itemprop="dateCreated datePublished" datetime="2019-09-13T11:17:54+08:00">2019-09-13</time>
             </span>
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-02 18:44:30" itemprop="dateModified" datetime="2019-10-02T18:44:30+08:00">2019-10-02</time>
+              </span>
+            
+          
 
           
   
@@ -359,19 +371,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+          <p>hexo文档： <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="运行服务器"><a href="#运行服务器" class="headerlink" title="运行服务器"></a>运行服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate / hexo g</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="发布到远端"><a href="#发布到远端" class="headerlink" title="发布到远端"></a>发布到远端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy / hexo d</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h2 id="Hexo博客-同步管理-amp-迁移"><a href="#Hexo博客-同步管理-amp-迁移" class="headerlink" title="Hexo博客 同步管理 &amp; 迁移"></a>Hexo博客 同步管理 &amp; 迁移</h2><blockquote>
+<p>本文的博客搭在github pages上</p>
+</blockquote>
+<h3 id="仓库的构建："><a href="#仓库的构建：" class="headerlink" title="仓库的构建："></a>仓库的构建：</h3><ol>
+<li><p>在原电脑上操作，给你的博客仓库创建hexo分支，并设为默认分支。</p>
+</li>
+<li><p>执行<code>git clone git@github.com:username/username.github.io.git</code>把仓库 clone 到本地。</p>
+</li>
+<li><p>进入刚才 clone 到本地的仓库，删掉除了 .git 文件夹以外的所有内容。</p>
+</li>
+<li><p>命令行 cd 到 clone 的仓库，git add .，git commit -m “–”，git push origin hexo，把刚才删除操作引起的本地仓库变化更新到远程，此时刷新下 github 端博客hexo分支，应该已经被清空了。</p>
+</li>
+<li><p>将上述 .git 文件夹复制到本机本地博客根目录下（即含有 themes、source 等文件夹的那个目录）</p>
+</li>
+<li><p>将博客目录下 themes 文件夹下每个主题文件夹里面的 .git .gitignore 删掉。</p>
+</li>
+<li><p>cd 到博客目录，git add .，git commit -m “–”，git push origin hexo，将博客目录下所有文件更新到 hexo 分支。至此原电脑上的操作结束。</p>
+</li>
+</ol>
+<h3 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h3><ol>
+<li><p>必要的环境安装，详见官方文档</p>
+</li>
+<li><p>选好博客安装的目录， <code>git clone git@github.com:username/username.github.io.git</code></p>
+</li>
+<li><p>cd 到博客目录，npm install、hexo g &amp;&amp; hexo s，安装依赖，生成和启动博客服务。正常的话，浏览器打开 localhost:4000 可以看到博客了。至此新电脑操作完毕。</p>
+</li>
+</ol>
+<p>以后无论在哪台电脑上，更新以及提交博客，依次执行<code>git pull，git add .，git commit -m &quot;message&quot;，git push origin hexo，hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code> 即可。</p>
 
         
       
