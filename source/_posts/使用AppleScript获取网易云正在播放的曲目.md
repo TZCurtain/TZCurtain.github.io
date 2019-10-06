@@ -58,8 +58,14 @@ group 1 of group 1 of window NeteaseMusic of application process NeteaseMusic
 
 ```bash
 #! /bin/bash
-osascript -e 'tell application "System Events"
-	get title of UI element 4 of group 9 of UI element 1 of scroll area 1 of group 1 of group 1 of window "NeteaseMusic" of process "NeteaseMusic"
+osascript -e 'on is_running(appName)
+	tell application "System Events" to (name of processes) contains appName
+end is_running
+set neteaseRunning to is_running("NeteaseMusic")
+tell application "System Events"
+	if neteaseRunning then
+		get title of UI element 4 of group 9 of UI element 1 of scroll area 1 of group 1 of group 1 of window "NeteaseMusic" of process "NeteaseMusic"
+	end if
 end tell'
 ```
 
@@ -78,10 +84,23 @@ POWERLEVEL9K_CUSTOM_NOW_PLAYING='~/.dotfiles/bin/nowplaying'
 ``` bash
 # ~/.p10k.zsh
 function prompt_now_playing_song() {
-    local song=`osascript -e 'tell application "System Events" 
+    local song=`osascript -e 'on is_running(appName) 
+      tell application "System Events" to (name of processes) contains appName 
+      end is_running 
+      set neteaseRunning to is_running("NeteaseMusic") 
+      tell application "System Events" 
+      if neteaseRunning then 
       get title of UI element 4 of group 9 of UI element 1 of scroll area 1 of group 1 of group 1 of window "NeteaseMusic" of process "NeteaseMusic" 
+      end if
       end tell'`
-    p10k segment -f 208 -i '🎵' -t "$song"  
+    if [[ -n $song ]]; then
+      p10k segment -f 208 -i '🎵' -t "$song"
+    fi 
 }
 ```
 
+## TODO
+
+* BUG: 刚开启应用的时候获取不到元素
+
+* 
