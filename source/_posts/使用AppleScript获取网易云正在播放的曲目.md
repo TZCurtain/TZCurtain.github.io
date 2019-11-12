@@ -90,7 +90,9 @@ function prompt_now_playing_song() {
       set neteaseRunning to is_running("NeteaseMusic") 
       tell application "System Events" 
       if neteaseRunning then 
-      get title of UI element 4 of group 9 of UI element 1 of scroll area 1 of group 1 of group 1 of window "NeteaseMusic" of process "NeteaseMusic" 
+      try 
+      get title of UI element 4 of group 9 of UI element 1 of scroll area 1 of group 1 of group 1 of window "NeteaseMusic" of process "NeteaseMusic"
+      end try
       end if
       end tell'`
     if [[ -n $song ]]; then
@@ -103,4 +105,4 @@ function prompt_now_playing_song() {
 
 * BUG: 刚开启应用的时候获取不到元素
 
-* 
+* 长度太长 歌曲不显示
